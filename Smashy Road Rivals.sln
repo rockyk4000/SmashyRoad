@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{CA289468-B83E-AA7C-A558-AC8AE24C30C7}") = "Smashy Road Rivals", "Assembly-CSharp-firstpass.csproj", "{90FED65B-88BD-81A8-784F-C5DBF9405B6C}"
+EndProject
+Project("{CA289468-B83E-AA7C-A558-AC8AE24C30C7}") = "Smashy Road Rivals", "Assembly-CSharp.csproj", "{62EB4CEA-E93C-70D7-37FF-C2607A908092}"
+EndProject
+Project("{CA289468-B83E-AA7C-A558-AC8AE24C30C7}") = "Smashy Road Rivals", "Assembly-CSharp-Editor.csproj", "{2D0B32D6-7706-895C-5A53-8B8E50E3C33D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90FED65B-88BD-81A8-784F-C5DBF9405B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FED65B-88BD-81A8-784F-C5DBF9405B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FED65B-88BD-81A8-784F-C5DBF9405B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FED65B-88BD-81A8-784F-C5DBF9405B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EB4CEA-E93C-70D7-37FF-C2607A908092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EB4CEA-E93C-70D7-37FF-C2607A908092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EB4CEA-E93C-70D7-37FF-C2607A908092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EB4CEA-E93C-70D7-37FF-C2607A908092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0B32D6-7706-895C-5A53-8B8E50E3C33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0B32D6-7706-895C-5A53-8B8E50E3C33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0B32D6-7706-895C-5A53-8B8E50E3C33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0B32D6-7706-895C-5A53-8B8E50E3C33D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
