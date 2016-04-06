@@ -36,14 +36,19 @@ public class SimpleCarController : MonoBehaviour {
 		Rigidbody body;
 	}
 
+	public void Start()
+	{
+		rigid.centerOfMass += new Vector3 (0, 0, 0.1f);
+
+	}
+
 	public void FixedUpdate()
 	{
 
 
 		if (IsControllable) {
 
-			Camera.main.transform.position = transform.position + (Vector3.up * 40) + (Vector3.back * 10);
-			Camera.main.transform.LookAt (transform.position);
+
 			float motor = maxMotorTorque * Input.GetAxis ("Vertical");
 			float steering = maxSteeringAngle * Input.GetAxis ("Horizontal");
 
@@ -58,7 +63,52 @@ public class SimpleCarController : MonoBehaviour {
 				}
 				ApplyLocalPositionToVisuals (axleInfo.leftWheel);
 				ApplyLocalPositionToVisuals (axleInfo.rightWheel);
+
+				RollUpdate (axleInfo.leftWheel, axleInfo.rightWheel);
+			}
+
+			if (rigid.velocity.magnitude < 15 && Input.GetAxis ("Vertical") > 0) {
+				Debug.Log ("SPEEEED " + rigid.velocity.magnitude);
+				rigid.AddRelativeForce (Vector3.forward * 20000);
 			}
 		}
 	}
+	public void Update()
+	{
+		Camera.main.transform.position = new Vector3 (transform.position.x, 35, transform.position.z - 20);
+		Camera.main.transform.LookAt (transform.position);
+	}
+
+	public void RollUpdate(WheelCollider WheelL, WheelCollider WheelR)
+	{
+
+		float travelL = 1.0f;
+		float travelR = 1.0f;
+		WheelHit hit;
+		bool groundedL = WheelL.GetGroundHit (out hit);
+		if (groundedL)
+			travelL = (-WheelL.transform.InverseTransformPoint(hit.point).y - WheelL.radius) / WheelL.suspensionDistance;
+
+		bool groundedR = WheelL.GetGroundHit (out hit);		
+		if (groundedR)
+			travelR = (-WheelR.transform.InverseTransformPoint(hit.point).y - WheelR.radius) / WheelR.suspensionDistance;
+
+		float antiRollForce =  AntiRoll;
+	
+		if (groundedL)
+			rigid.AddForceAtPosition(WheelL.transform.up * -antiRollForce,
+				WheelL.transform.position); 
+		if (groundedR)
+			rigid.AddForceAtPosition(WheelR.transform.up * -antiRollForce,
+				WheelR.transform.position); 
+	}
+
+
+	public float AntiRoll = 15000.0f;
+	public Rigidbody rigid;
+
+		
+
+
+
 }
