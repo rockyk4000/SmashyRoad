@@ -3,6 +3,7 @@ using UnityEngine;
 public class RandomMatchmaker : Photon.PunBehaviour
 {
     private PhotonView myPhotonView;
+	public CarButtonControls carButtonControls;
 
     // Use this for initialization
     public void Start()
@@ -30,9 +31,17 @@ public class RandomMatchmaker : Photon.PunBehaviour
 
     public override void OnJoinedRoom()
     {
+
+
+
+		//GameObject aiCar =  PhotonNetwork.Instantiate("Cars/Car Root", (Vector3.forward * Random.Range(0,10)) + (Vector3.left * Random.Range(0,10)), Quaternion.identity, 0);
+		//aiCar.GetComponent<SimpleCarController>().IsControllable = false;
+
 		GameObject car = PhotonNetwork.Instantiate("Cars/Car Root", (Vector3.forward * Random.Range(0,10)) + (Vector3.left * Random.Range(0,10)), Quaternion.identity, 0);
 		car.GetComponent<SimpleCarController>().IsControllable = true;
-        myPhotonView = car.GetComponent<PhotonView>();
+		myPhotonView = car.GetComponent<PhotonView>();
+		car.GetComponent<SimpleCarController>().SetCarButtonControls (carButtonControls);
+		//myPhotonView = car.GetComponent<PhotonView>();
     }
 
     public void OnGUI()
